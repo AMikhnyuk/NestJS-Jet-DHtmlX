@@ -1,3 +1,4 @@
 jet-start/node_modules/
 nest-test/node_modules/
 nest-test/dist/
+nest-test/db
