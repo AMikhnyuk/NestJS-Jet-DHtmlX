@@ -1,5 +1,5 @@
 import { gantt } from "dhtmlx-gantt";
-import "dhtmlx-gantt/codebase/dhtmlxgantt.css";
+
 import { JetView } from "webix-jet";
 import links from "../services/links";
 import tasks from "../services/tasks";
@@ -29,7 +29,16 @@ export default class Gantt extends JetView {
 		webix.promise.all([tasks.get(), links.get()]).then((result)=>{
 			gantt.parse({ data: result[0].json(), links: result[1].json() });
 		});
+		this.taskProgressStyling();
 		
-
+	}
+	taskProgressStyling(){
+		gantt.templates.task_class  = (start, end, task)=>{
+			if(task.progress > 0.75 && task.progress <= 0.9) return "red";
+			else if(task.progress > 0.9 ) return  "red mark";
+		};
+		gantt.templates.rightside_text = (start, end, task) =>{
+			if(task.progress === 1) return "Done";
+		};
 	}	
 }    

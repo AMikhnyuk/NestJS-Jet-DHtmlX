@@ -56,3 +56,18 @@
 	font-size:20px;
 	vertical-align:middle;
 }
+
+.gantt_task_line{
+    border-color: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.25);
+}
+.gantt_task_line.red.gantt_bar_task .gantt_task_progress{
+    background: red;
+}
+.gantt_task_line.mark.gantt_bar_task .gantt_task_content{
+    font-size: large;
+    font-weight: bold;
+}
+.gantt_side_content.gantt_right{
+    color:green
+}
